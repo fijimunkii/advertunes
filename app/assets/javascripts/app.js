@@ -1,5 +1,5 @@
-    $(document).ready(function(){
+$(document).ready(function(){
 
-      App.router = new App.Router();
+  App.router = new App.Router();
 
-    });
+});
