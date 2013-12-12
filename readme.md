@@ -8,6 +8,10 @@ Advertunes
 
 A music licensing platform for indie artists to get their music out in the world. Advertisers can search through user curated, pre-licensed music for their ads. Artists can put their music up for grabs and maybe they will have produced the background track of a hit commercial.
 
+
+User Stories
+============
+
 As an unregistered user
 
 * I want visit the webpage and be presented with a nice splash page explaining the mission of the site
@@ -29,6 +33,23 @@ As an authorized user (advertiser)
 
 * I want to indicate that I am going to use a track in an ad
 
+
+
+Data Models
+===========
+
+users
+
+* email
+* password_digest
+*
+
+songs
+
+*
+
+
+http://developers.soundcloud.com/docs#authentication
 
 http://creativecommons.org/choose/
 
