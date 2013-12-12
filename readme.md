@@ -6,8 +6,5 @@ Advertunes
 * ideal for advertisers
 * ideal for indie musicians
 
-**advertiser**: search through user curated, pre-licensed music for your add. all, if not most music is free. if there is any cost to you, all proceeds go directly to the artist.
-
-**artist**: get your music out there! put your music up for grabs and maybe it will be the new background track on a hit commercial.
-
+A music licensing platform for indie artists to get their music out in the world. Advertisers can search through user curated, pre-licensed music for their ads. Artists can put their music up for grabs and maybe they will have produced the background track of a hit commercial.
 
