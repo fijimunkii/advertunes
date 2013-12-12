@@ -49,9 +49,47 @@ songs
 *
 
 
+
+Gems
+====
+
+soundcloud
+
+
+TESTING ZONE
+=============
+
 http://developers.soundcloud.com/docs#authentication
 
 http://creativecommons.org/choose/
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">Advertunes</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://advertunes.org" property="cc:attributionName" rel="cc:attributionURL">Harrison Powers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+
+client = SoundCloud.new({
+  :client_id     => ENV['ADVERTUNES_SOUNDCLOUD_ID'],
+  :client_secret => ENV['ADVERTUNES_SOUNDCLOUD_SECRET'],
+  :username      => 'harrisonpowers@gmail.com',
+  :password      => 'XXXXXXXXXX'
+})
+
+user.soundcloud_access_token = client.access_token
+user.soundcloud_refresh_token = client.refresh_token
+user.soundcloud_expires_at = client.expires_at
+user.soundcloud_username = client.get('/me').username
+user.soundcloud_id = client.get('/me').id
+
+tracks = client.get('/me/tracks').map do |track|
+  {
+    id: track.id,
+    permalink: track.permalink,
+    genre: track.genre,
+    description: track.description,
+    uri: track.uri
+  }
+end
+
+
+
+embed_info = client.get('/oembed', :url => track_url)
