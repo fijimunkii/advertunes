@@ -1,23 +1,46 @@
-%h2 artist
+.intro.right
+  = image_tag('note.png')
+%br
+%br
+%h2 for the artist
+%br
 %h4 your music could be the hit of a popular commerical or new movie!
 
 %br
+%br
+%br
+%br
 
-%h2 advertiser
+.intro.right
+  = image_tag('radio.png')
+%br
+%br
+%h2 for the advertiser
+%br
 %h4 find awesome music you can use for free!
 
 %br
+%br
+%br
+%br
+%br
+
 %h2 how does it work
-%h4 advertunes is a music licensing platform for indie artists to get their music out in the world. advertisers can search through user curated, pre-licensed music for their ads.
+%br
+%h4
+  advertunes is a music licensing platform for indie artists to get their music out in the world.
+  %br
+  %br
+  advertisers can search through user curated, pre-licensed music for their ads.
 
 %br
 %br
 
 %center
-  %h2
-    coming soon!
+  = form_tag('/register') do
+    = email_field_tag 'email', nil, { :placeholder => 'Email...' }
+    = submit_tag 'Signup'
 
-%br
 %br
 
 
