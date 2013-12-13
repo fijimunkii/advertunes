@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.string   "sc_id"
-    t.string   "sc_username"
-    t.string   "sc_access_token"
-    t.string   "sc_refresh_token"
-    t.datetime "sc_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "soundcloud_id"
+    t.string   "soundcloud_username"
+    t.string   "soundcloud_access_token"
+    t.string   "soundcloud_refresh_token"
+    t.datetime "soundcloud_expires_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
 end
