@@ -2,23 +2,23 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  email            :string(255)
-#  password_digest  :string(255)
-#  sc_id            :string(255)
-#  sc_username      :string(255)
-#  sc_access_token  :string(255)
-#  sc_refresh_token :string(255)
-#  sc_expires_at    :datetime
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                       :integer          not null, primary key
+#  email                    :string(255)
+#  password_digest          :string(255)
+#  soundcloud_id            :string(255)
+#  soundcloud_username      :string(255)
+#  soundcloud_access_token  :string(255)
+#  soundcloud_refresh_token :string(255)
+#  soundcloud_expires_at    :datetime
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
 #
 
 class User < ActiveRecord::Base
   def self.soundcloud_client(options={})
     options = {
       :client_id     => ENV['ADVERTUNES_SOUNDCLOUD_ID'],
-      :client_secret => ENV['ADVERTUNES_SOUNDCLOUD_SECRET'],
+      :client_secret => ENV['ADVERTUNES_SOUNDCLOUD_SECRET']
     }.merge(options)
 
     Soundcloud.new(options)
@@ -42,6 +42,8 @@ class User < ActiveRecord::Base
         :soundcloud_access_token  => client.access_token,
         :soundcloud_refresh_token => client.refresh_token,
         :soundcloud_expires_at    => client.expires_at,
+        :soundcloud_username      => client.get('/me').username,
+        :soundcloud_id            => client.get('/me').id
       })
     end
 
