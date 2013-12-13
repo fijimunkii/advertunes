@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.string   "soundcloud_id"
+    t.string   "soundcloud_user_id"
     t.string   "soundcloud_username"
     t.string   "soundcloud_access_token"
     t.string   "soundcloud_refresh_token"

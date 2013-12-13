@@ -28,4 +28,7 @@
 //= require_tree ./views
 //
 //= require focus-zoom
+//
+//= require soundcloud
+//
 //= require app

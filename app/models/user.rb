@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
         :soundcloud_refresh_token => client.refresh_token,
         :soundcloud_expires_at    => client.expires_at,
         :soundcloud_username      => client.get('/me').username,
-        :soundcloud_id            => client.get('/me').id
+        :soundcloud_user_id       => client.get('/me').id
       })
     end
 
