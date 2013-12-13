@@ -16,10 +16,13 @@ $(document).ready(function(){
     }
   };
 
+  $('#soundcloud-connect').on('click', function() {
+    SC.Connect.initiate();
+  });
+
   $(".connect-with-soundcloud a.connect").on("click", function(e){
     e.preventDefault();
     SC.Connect.initiate({
-      redirectEndpoint: "/soundcloud/connect",
       error: function(reason){
         console.log("SoundCloud Connect failed: "+ reason);
       },
