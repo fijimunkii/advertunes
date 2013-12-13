@@ -25,4 +25,5 @@
 //= require_tree ./collections
 //= require_tree ./views
 //
+//= require focus-zoom
 //= require app
