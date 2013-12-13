@@ -1,7 +1,9 @@
 %br
-.call-to-action
-  %button SIGN UP NOW
-
+%center
+  = form_tag('/register') do
+    = email_field_tag 'email', nil, { :placeholder => 'email...' }
+    = submit_tag 'signup'
+%br
 %br
 
 .intro.right
@@ -40,12 +42,6 @@
 
 %br
 %br
-%br
-%br
-%center
-  = form_tag('/register') do
-    = email_field_tag 'email', nil, { :placeholder => '  email...' }
-    = submit_tag 'signup'
 %br
 %br
 
