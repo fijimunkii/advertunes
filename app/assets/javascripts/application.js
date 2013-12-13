@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//
+//= require jquery-smooth-scroll
+//= require jquery-scrollTo
 //= require json2
 //= require handlebars
 //= require underscore

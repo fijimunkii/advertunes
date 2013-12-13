@@ -6,4 +6,6 @@ $(document).ready(function(){
   $email.focus();
   focusZoom.trigger($email[0]);
 
+  $('a').smoothScroll();
+
 });
