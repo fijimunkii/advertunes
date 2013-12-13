@@ -10,6 +10,10 @@
 </head>
 <body>
 <div id="header">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <br />
+  <% end %>
   <h1> ADVERTUNES </h1>
   <h3>
     <i>royalty-free music<br /> licensed for advertising</i>
