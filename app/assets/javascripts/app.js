@@ -8,9 +8,17 @@ $(document).ready(function(){
 
   $('a').smoothScroll();
 
+  SC.Connect.options = {
+    'request_token_endpoint': '/soundcloud/connect',
+    'access_token_endpoint': '/soundcloud/connect',
+    'callback': function(query_obj){
+      console.log(query_obj);
+    }
+  };
+
   $(".connect-with-soundcloud a.connect").on("click", function(e){
     e.preventDefault();
-    SC.Connect.open({
+    SC.Connect.initiate({
       redirectEndpoint: "/soundcloud/connect",
       error: function(reason){
         console.log("SoundCloud Connect failed: "+ reason);
