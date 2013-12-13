@@ -42,12 +42,36 @@ users
 
 * email
 * password_digest
-*
+* sc_access_token
+* sc_refresh_token
+* sc_expires_at
+* sc_username
+* sc_id
 
 songs
 
-*
+* name
+* artist
+* permalink
+* description
 
+feelings
+
+* name
+
+feelings_songs
+
+* feeling_id
+* song_id
+
+genres
+
+* name
+
+genres_songs
+
+* genre_id
+* song_id
 
 
 Gems
@@ -82,8 +106,7 @@ tracks = client.get('/me/tracks').map do |track|
     id: track.id,
     permalink: track.permalink,
     genre: track.genre,
-    description: track.description,
-    uri: track.uri
+    description: track.description
   }
 end
 
