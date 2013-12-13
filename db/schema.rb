@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213203532) do
+ActiveRecord::Schema.define(:version => 20131213204024) do
 
   create_table "feelings", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,22 @@ ActiveRecord::Schema.define(:version => 20131213203532) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "feelings_songs", :force => true do |t|
+    t.integer  "feeling_id"
+    t.integer  "song_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "genres", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "genres_songs", :force => true do |t|
+    t.integer  "genre_id"
+    t.integer  "song_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -36,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20131213203532) do
     t.string   "artist"
     t.string   "permalink"
     t.text     "description"
+    t.integer  "num_stars"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

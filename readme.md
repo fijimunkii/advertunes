@@ -54,6 +54,7 @@ songs
 * artist
 * permalink
 * description
+* num_stars
 
 feelings
 
