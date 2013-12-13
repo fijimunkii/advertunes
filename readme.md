@@ -73,6 +73,11 @@ genres_songs
 * genre_id
 * song_id
 
+stars
+
+* song_id
+* user_id
+
 
 Gems
 ====
