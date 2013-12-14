@@ -85,8 +85,18 @@ input[type=submit]
 	padding: 10px 10px 0 0
 	margin: 0 0 0 0
 	text-align: right
+	a
+		margin: 0 15px
 
-#content
+#soundcloud-connect
+	float: left
+	margin: 0 0 0 20px
+
+#listen-button
+	float: left
+#contribute-button
+	float: left
+
 
 .intro
 	img
@@ -101,6 +111,9 @@ input[type=submit]
 
 .left
 	float: left
+	@media screen and (max-width: 640px)
+		float: none
+		text-align: center
 
 .off
 	background: url("off.png")

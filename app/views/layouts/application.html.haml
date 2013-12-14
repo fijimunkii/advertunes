@@ -10,8 +10,24 @@
   %body
 
     #super-header
+      .left
+        - if current_user
+          .left
+            %a{href:'/soundcloud/music'}
+              = image_tag 'radio-small.png'
+              Contribute
+        - else
+          #soundcloud-connect.left
+            = image_tag 'connect-button.png'
+
+        .left
+          %a{href:'/music'}
+            = image_tag 'sound-small.png'
+            Listen
+
       - if current_user
-        %a{href:'/soundcloud/disconnect'} Log Out
+        .right
+          %a{href:'/soundcloud/disconnect'} Log Out
 
     #header
       - flash.each do |name, msg|

@@ -31,19 +31,23 @@ class SoundcloudController < ApplicationController
   end
 
   def music
-    client = Soundcloud.new(:access_token => current_user.soundcloud_access_token)
-    me = client.get("/me")
-    @songs = client.get("/me/tracks").map do |song|
-      song_check = Song.where(artist: me.username, permalink: song.permalink)
-      on = song_check.length == 1 ? true : false
-      {
-        artist: me.username,
-        title: song.title,
-        permalink: song.permalink,
-        genre: song.genre,
-        description: song.description,
-        on: on
-      }
+    if !current_user
+      redirect_to :root
+    else
+      client = Soundcloud.new(:access_token => current_user.soundcloud_access_token)
+      me = client.get("/me")
+      @songs = client.get("/me/tracks").map do |song|
+        song_check = Song.where(artist: me.username, permalink: song.permalink)
+        on = song_check.length == 1 ? true : false
+        {
+          artist: me.username,
+          title: song.title,
+          permalink: song.permalink,
+          genre: song.genre,
+          description: song.description,
+          on: on
+        }
+      end
     end
   end
 
