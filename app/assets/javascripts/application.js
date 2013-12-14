@@ -31,4 +31,8 @@
 //
 //= require soundcloud
 //
+//= require soundcloud-helper
+//= require soundcloud-music
+//= require intro
+//
 //= require app

@@ -1,0 +1,32 @@
+%html
+  %head
+    %title Advertunes
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    %meta{content:"width=device-width", name:"viewport"}
+    %meta{name:"apple-mobile-web-app-capable", content:"yes"}
+    = csrf_meta_tags
+
+  %body
+
+    #super-header
+      - if current_user
+        %a{href:'/soundcloud/disconnect'} Log Out
+
+    #header
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+        %br
+
+      %a{href:"/"}
+        %h1 ADVERTUNES
+
+      - if @index
+        %h3
+          %i
+            royalty-free music
+            %br
+            licensed for advertising
+
+    #container
+      = yield

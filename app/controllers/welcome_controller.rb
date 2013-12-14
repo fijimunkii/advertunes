@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @index = true
   end
 
   def register
@@ -8,7 +9,8 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    @tracks = current_user.soundcloud_client.get("/me/tracks", :limit => 5)
+    @tracks = current_user.soundcloud_client.get("/me/tracks")
+    raise
     @me     = current_user.soundcloud_client.get("/me")
   end
 

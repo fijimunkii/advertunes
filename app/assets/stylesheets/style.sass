@@ -1,5 +1,4 @@
-@import "http://fonts.googleapis.com/css?family=Alegreya+Sans|Nixie+One"
-@import "http://fonts.googleapis.com/css?family=Fascinate|Trade+Winds|Fascinate+Inline|Bigelow+Rules|Akronim|Amarante"
+@import "http://fonts.googleapis.com/css?family=Fascinate+Inline|Nixie+One"
 
 body
 	font-family: 'Nixie One', sans-serif
@@ -67,20 +66,27 @@ input[type=submit]
 	width: 100%
 	padding: 40px 0
 	text-align: center
+	a
+		color: #EDF0F1
+		text-decoration: none
+		&:hover
+			color: #EDF0F1
+			text-decoration: none
+		&:active
+			color: #EDF0F1
+			text-decoration: none
+			font-weight: bold
+		&:visited
+			color: #EDF0F1
+			text-decoration: none
+
+#super-header
+	@extend #header
+	padding: 10px 10px 0 0
+	margin: 0 0 0 0
+	text-align: right
 
 #content
-
-.call-to-action
-	width: 230px
-	margin: 0 auto
-	button
-		width: 230px
-		height: 55px
-		color: #818C9A
-		background: #E1E1E1
-		border: 1px solid #818C9A
-		font-size: 30px
-		font-family: 'Nixie One', sans-serif
 
 .intro
 	img
@@ -95,6 +101,19 @@ input[type=submit]
 
 .left
 	float: left
+
+.off
+	background: url("off.png")
+	width: 100px
+	height: 40px
+	background-size: 100%
+	margin: 0 10px 0 0
+.on
+	background: url("on.png")
+	width: 100px
+	height: 40px
+	background-size: 100%
+	margin: 0 10px 0 0
 
 .cclicense
 	margin: 0 auto

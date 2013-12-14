@@ -8,10 +8,13 @@ class SoundcloudController < ApplicationController
       soundcloud_client.exchange_token(:code => params[:code])
       me = soundcloud_client.get("/me")
 
-      login_as User.find_or_create_by_soundcloud_user_id({
-        :soundcloud_user_id  => me.id,
-        :soundcloud_username => me.username
-      })
+      cur_user = User.where(soundcloud_user_id: me.id).first_or_initialize.tap do |user|
+        user.soundcloud_user_id = me.id
+        user.soundcloud_username = me.username
+        user.save!
+      end
+
+      login_as cur_user
 
       current_user.update_attributes!({
         :soundcloud_access_token  => soundcloud_client.access_token,
@@ -25,6 +28,23 @@ class SoundcloudController < ApplicationController
   def disconnect
     login_as nil
     redirect_to root_path
+  end
+
+  def music
+    client = Soundcloud.new(:access_token => current_user.soundcloud_access_token)
+    me = client.get("/me")
+    @songs = client.get("/me/tracks").map do |song|
+      song_check = Song.where(artist: me.username, permalink: song.permalink)
+      on = song_check.length == 1 ? true : false
+      {
+        artist: me.username,
+        title: song.title,
+        permalink: song.permalink,
+        genre: song.genre,
+        description: song.description,
+        on: on
+      }
+    end
   end
 
 private

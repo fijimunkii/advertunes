@@ -1,0 +1,23 @@
+%center
+  %h2
+    your tracks!
+  %br
+  %br
+  %h5
+    note: selecting a song agrees to a creative commons attribution license, which means an advertiser can use your music -- but they MUST credit you as the artist
+  %br
+  %br
+
+  - @songs.each do |song|
+    .track{data:{title: song[:title], permalink: song[:permalink], artist: song[:artist], description: song[:description], genre: song[:genre]}}
+      - if song[:on]
+        .left.on
+      - else
+        .left.off
+      .left
+        %h3
+          = song[:title]
+    %br
+    %br
+    %br
+    %br

@@ -5,7 +5,7 @@
 #  id                       :integer          not null, primary key
 #  email                    :string(255)
 #  password_digest          :string(255)
-#  soundcloud_id            :string(255)
+#  soundcloud_user_id       :integer
 #  soundcloud_username      :string(255)
 #  soundcloud_access_token  :string(255)
 #  soundcloud_refresh_token :string(255)
@@ -15,6 +15,8 @@
 #
 
 class User < ActiveRecord::Base
+  attr_accessible :email, :password_digest, :soundcloud_user_id, :soundcloud_username, :soundcloud_access_token, :soundcloud_refresh_token, :soundcloud_expires_at
+
   def self.soundcloud_client(options={})
     options = {
       :client_id     => ENV['ADVERTUNES_SOUNDCLOUD_ID'],

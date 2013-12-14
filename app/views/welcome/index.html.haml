@@ -1,52 +1,58 @@
-%br
-%center
-  = form_tag('/register') do
-    = email_field_tag 'email', nil, { placeholder: 'email...', required: true}
-    = submit_tag 'signup'
-%br
-%br
+- if !current_user
+  %br
+  %center
+    = form_tag('/register') do
+      = email_field_tag 'email', nil, { placeholder: 'email...', required: true}
+      = submit_tag 'signup'
+  %br
 
-.intro.right#note
-  %a{href:'#note'}
-    = image_tag('note.png')
-%br
-%br
-%h2 for the artist
-%br
-%h4 your music could be the hit of a popular commerical or new movie!
+  .intro.right#note
+    %a{href:'#note'}
+      = image_tag('note.png')
+  %br
+  %br
+  %h2 for the artist
+  %br
+  %h4 your music could be the hit of a popular commerical or new movie!
 
-%br
-%br
-%br
-%br
+  %br
+  %br
+  %br
+  %br
 
-.intro.right#radio
-  %a{href:'#radio'}
-    = image_tag('radio.png')
-%br
-%br
-%h2 for the advertiser
-%br
-%h4 find awesome music you can use for free!
+  .intro.right#radio
+    %a{href:'#radio'}
+      = image_tag('radio.png')
+  %br
+  %br
+  %h2 for the advertiser
+  %br
+  %h4 find awesome music you can use for free!
 
-%br
-%br
-%br
-%br
+  %br
+  %br
+  %br
+  %br
 
-.intro.right#sound
-  %a{href:'#sound'}
-    = image_tag('sound.png')
-%br
-%br
-%h2 for everyone
-%br
-%h4 listen to and rate music!
+  .intro.right#sound
+    %a{href:'#sound'}
+      = image_tag('sound.png')
+  %br
+  %br
+  %h2 for everyone
+  %br
+  %h4 listen to and rate music!
 
-%br
-%br
-%br
-%br
+  %br
+  %br
+  %br
+  %br
+
+- else
+  %br
+
+  #soundcloud-connect
+    = image_tag 'connect-button.png'
 
 
 .cclicense
