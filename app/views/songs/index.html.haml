@@ -1,5 +1,11 @@
-Time to partay
+%center
+  = select("genre", "name", Genre.all.collect { |g| [g.name, g.id] }, {include_blank: 'genre'})
+
+  = select("feeling", "name", Feeling.all.collect {|f| [f.name, f.id] }, {include_blank: 'feeling'})
+
+%br
 
 - @song_frames.each do |song|
   = raw song
+  %br
   %br

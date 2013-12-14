@@ -6,9 +6,9 @@ class SongsController < ApplicationController
       song_to_toggle[0].destroy
       render json: { off: true }
     else
-      genre = Genre.where(name: params[:genre]).first_or_initialize.tap do |genre|
-        genre.name = params[:genre]
-        genre.save!
+      genre = Genre.where(name: params[:genre])
+      if genre.length == 0
+        Genre.create(name: params[:genre])
       end
       #TODO genres_songs ????
       new_song = Song.new
