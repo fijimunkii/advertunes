@@ -5,7 +5,18 @@
 
 %br
 
-- @song_frames.each do |song|
+- @song_frames.each do |song, id|
   = raw song
+  - if current_user
+    .left
+      = form_tag do
+        = text_field_tag "feeling-#{id}", nil, {placeholder: 'how does this song feel?', required: true}
+        = submit_tag 'tag'
+    .right
+      .star-off
+    %br
   %br
   %br
+  %br
+  %br
+

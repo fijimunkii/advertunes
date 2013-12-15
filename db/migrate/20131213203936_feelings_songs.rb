@@ -1,6 +1,6 @@
 class FeelingsSongs < ActiveRecord::Migration
   def change
-    create_table :feelings_songs do |t|
+    create_table :feelings_songs, :id => false do |t|
       t.integer :feeling_id
       t.integer :song_id
 

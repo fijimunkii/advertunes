@@ -28,7 +28,7 @@ class SongsController < ApplicationController
     songs = Song.all
     @song_frames = []
     songs.each do |song|
-      @song_frames << client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html']
+      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id]
     end
   end
 

@@ -25,32 +25,37 @@ h5
 	font-size: 10px
 
 input
-	width: 275px
-	height: 50px
-	background: #EDEDED
-	border: 1px solid #818C9A
-	padding: 0 15px
+	width: 160px
+	height: 20px
+	background: #F5F5F5
+	border: 1px solid #E5E5E5
+	padding: 0 5px
+	margin: 10px 0 0 2px
 	color: #818C9A
-	font-size: 30px
+	font-size: 12px
 	font-family: 'Nixie One', sans-serif
-	@media screen and (max-width: 640px)
-		width: 200px
+	-webkit-border-radius: 4px
+	-moz-border-radius: 4px
+	border-radius: 4px
+	&:hover
+		background: #FFFFFF
 
 input[type=submit]
 	font-family: 'Nixie One', sans-serif
-	width: 120px
-	height: 52px
-	padding: 0 0 5px 0
-	color: #818C9A
-	background: #E1E1E1
-	border: 1px solid #818C9A
+	width: 40px
+	height: 20px
+	padding: 0 0 2px 0
+	color: #999999
+	background: #F5F5F5
+	border: 1px solid #E5E5E5
 	position: relative
-	top: -3px
+	top: -1px
+	-webkit-border-radius: 4px
+	-moz-border-radius: 4px
+	border-radius: 4px
 	&:hover
-		color: #FFFFFF
-	@media screen and (max-width: 640px)
-		margin: 20px 0 0 0
-		width: 170px
+		background: #FFFFFF
+
 
 #container
 	color: #7F8C8D
@@ -163,6 +168,26 @@ input[type=submit]
 	opacity: .8
 	&:hover
 		opacity: .9
+
+.star
+	height: 18px
+	width: 20px
+	margin: 10px 5px 0 0
+	opacity: .4
+.star-off
+	@extend .star
+	background: url("star-off.png")
+	background-size: 100%
+	&:hover
+		background: url("star-on.png")
+		background-size: 100%
+.star-on
+	@extend .star
+	background: url("star-on.png")
+	background-size: 100%
+	&:hover
+		background: url("star-off.png")
+		background-size: 100%
 
 .cclicense
 	margin: 0 auto
