@@ -1,11 +1,10 @@
 %center
-  %a{href:'/music'}
-    .intro
-      = image_tag('sound.png')
+  %h2
+    which songs do you want advertuned?
 
 - if @songs.length == 0
 
-  %h2
+  %h3
     %a{href:'http://soundcloud.com'} upload music on soundcloud to contribute!
 
 - else
@@ -22,7 +21,7 @@
       .left.on
     - else
       .left.off
-    .left
+    .left.title-select
       %h3
         = song[:title]
   %br
