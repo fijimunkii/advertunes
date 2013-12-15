@@ -59,7 +59,19 @@ input[type=submit]
 	max-width: 720px
 	@media screen and (max-width: 640px)
 		margin: 20px 20px 0 20px
-
+	a
+		color: #7F8C8D
+		text-decoration: none
+		&:hover
+			color: #7F8C8D
+			text-decoration: none
+		&:active
+			color: #7F8C8D
+			text-decoration: none
+			font-weight: bold
+		&:visited
+			color: #7F8C8D
+			text-decoration: none
 #header
 	background: #7F8C8D
 	color: #EDF0F1
@@ -82,15 +94,16 @@ input[type=submit]
 
 #super-header
 	@extend #header
-	padding: 10px 10px 0 0
 	margin: 0 0 0 0
+	padding: 10px 0
 	text-align: right
 	a
-		margin: 0 15px
+		margin: 0 12px
 
-#soundcloud-connect
-	float: left
+.soundcloud-connect
 	margin: 0 0 0 20px
+	&:hover
+		cursor: pointer
 
 #listen-button
 	float: left
@@ -103,17 +116,24 @@ input[type=submit]
 		width: 150px
 		height: 150px
 		opacity: .6
-.right
+.adaptive-right
 	float: right
 	@media screen and (max-width: 640px)
 		float: none
 		text-align: center
 
-.left
+.adaptive-left
 	float: left
 	@media screen and (max-width: 640px)
 		float: none
 		text-align: center
+
+.right
+	float: right
+.left
+	float: left
+.center
+	text-align: center
 
 .off
 	background: url("off.png")

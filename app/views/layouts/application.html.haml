@@ -17,17 +17,25 @@
               = image_tag 'radio-small.png'
               Contribute
         - else
-          #soundcloud-connect.left
+          .soundcloud-connect.left
             = image_tag 'connect-button.png'
 
-        .left
-          %a{href:'/music'}
-            = image_tag 'sound-small.png'
-            Listen
+        - if current_user
+          .left
+            %a{href:'/music'}
+              = image_tag 'sound-small.png'
+              Listen
 
       - if current_user
         .right
-          %a{href:'/soundcloud/disconnect'} Log Out
+          %a{href:'/soundcloud/disconnect'}
+            = image_tag 'disconnect.png'
+
+      - else
+        .right
+          %a{href:'/music'}
+            = image_tag 'sound-small.png'
+            Listen
 
     #header
       - flash.each do |name, msg|
