@@ -16,8 +16,8 @@
             %a{href:'/soundcloud/music'}
               = image_tag 'contribute.png'
         - else
-          .soundcloud-connect.left
-            = image_tag 'connect-button.png'
+          .soundcloud-connect.left.point9
+            = image_tag 'connect.png'
 
         - if current_user
           .left.point9
@@ -40,7 +40,7 @@
         %br
 
       %a{href:"/"}
-        %h1 ADVERTUNES
+        %h1.point9 ADVERTUNES
 
       - if @index
         %h3
