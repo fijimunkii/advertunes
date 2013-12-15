@@ -12,30 +12,27 @@
     #super-header
       .left
         - if current_user
-          .left
+          .left.point9
             %a{href:'/soundcloud/music'}
-              = image_tag 'radio-small.png'
-              Contribute
+              = image_tag 'contribute.png'
         - else
           .soundcloud-connect.left
             = image_tag 'connect-button.png'
 
         - if current_user
-          .left
+          .left.point9
             %a{href:'/music'}
-              = image_tag 'sound-small.png'
-              Listen
+              = image_tag 'listen.png'
 
       - if current_user
-        .right
+        .right.point9.right-cushion
           %a{href:'/soundcloud/disconnect'}
             = image_tag 'disconnect.png'
 
       - else
-        .right
+        .right.point9.right-cushion
           %a{href:'/music'}
-            = image_tag 'sound-small.png'
-            Listen
+            = image_tag 'listen.png'
 
     #header
       - flash.each do |name, msg|

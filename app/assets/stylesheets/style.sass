@@ -95,13 +95,16 @@ input[type=submit]
 #super-header
 	@extend #header
 	margin: 0 0 0 0
-	padding: 10px 0
+	padding: 9px 0 5px 0
 	text-align: right
 	a
-		margin: 0 12px
+		margin: 0 0 0 9px
+
+.right-cushion
+	margin: 0 9px 0 0
 
 .soundcloud-connect
-	margin: 0 0 0 20px
+	margin: 0 0 0 9px
 	&:hover
 		cursor: pointer
 
@@ -138,13 +141,13 @@ input[type=submit]
 .off
 	background: url("off.png")
 	width: 100px
-	height: 40px
+	height: 38px
 	background-size: 100%
 	margin: 0 10px 0 0
 .on
 	background: url("on.png")
 	width: 100px
-	height: 40px
+	height: 38px
 	background-size: 100%
 	margin: 0 10px 0 0
 
@@ -152,6 +155,11 @@ input[type=submit]
 	@media screen and (max-width: 640px)
 		position: relative
 		left: -27px
+
+.point9
+	opacity: .8
+	&:hover
+		opacity: .9
 
 .cclicense
 	margin: 0 auto
