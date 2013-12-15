@@ -33,6 +33,9 @@
 //
 //= require soundcloud-helper
 //= require soundcloud-music
+//
+//= require star-helper
+//
 //= require intro
 //
 //= require app

@@ -18,7 +18,7 @@ Advertunes::Application.routes.draw do
 
   post '/songs/toggle/:artist/:track/:permalink/:genre/:description', to: 'songs#toggle'
 
-  post '/stars/toggle/:track_id/:user_id', :to => 'stars#toggle'
+  post '/stars/toggle/:song_id', :to => 'stars#toggle'
 
   match '/soundcloud/connect',    :to => 'soundcloud#connect',    :as => :soundcloud_connect
   match '/soundcloud/connected',  :to => 'soundcloud#connected',  :as => :soundcloud_connected

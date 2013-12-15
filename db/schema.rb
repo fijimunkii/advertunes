@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "feelings_songs", :force => true do |t|
+  create_table "feelings_songs", :id => false, :force => true do |t|
     t.integer  "feeling_id"
     t.integer  "song_id"
     t.datetime "created_at", :null => false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "genres_songs", :force => true do |t|
+  create_table "genres_songs", :id => false, :force => true do |t|
     t.integer  "genre_id"
     t.integer  "song_id"
     t.datetime "created_at", :null => false
@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
     t.string   "artist"
     t.string   "permalink"
     t.text     "description"
-    t.integer  "num_stars"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "num_stars",   :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "stars", :force => true do |t|

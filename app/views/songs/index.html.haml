@@ -5,7 +5,7 @@
 
 %br
 
-- @song_frames.each do |song, id|
+- @song_frames.each do |song, id, num_stars, has_user_star|
   = raw song
   - if current_user
     .left
@@ -13,7 +13,13 @@
         = text_field_tag "feeling-#{id}", nil, {placeholder: 'how does this song feel?', required: true}
         = submit_tag 'tag'
     .right
-      .star-off
+      .num-stars
+        = num_stars
+
+      - if has_user_star
+        .star.star-on{data:{id: id}}
+      - else
+        .star.star-off{data:{id: id}}
     %br
   %br
   %br
