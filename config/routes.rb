@@ -18,10 +18,11 @@ Advertunes::Application.routes.draw do
 
   post '/songs/toggle/:artist/:track/:permalink/:genre/:description', to: 'songs#toggle'
 
-  post '/stars/toggle/:song_id', :to => 'stars#toggle'
+  post '/feelings/:song_id/:feeling', to: 'feelings#create'
+  post '/stars/toggle/:song_id', to: 'stars#toggle'
 
-  match '/soundcloud/connect',    :to => 'soundcloud#connect',    :as => :soundcloud_connect
-  match '/soundcloud/connected',  :to => 'soundcloud#connected',  :as => :soundcloud_connected
-  match '/soundcloud/disconnect', :to => 'soundcloud#disconnect', :as => :soundcloud_disconnect
-  match '/soundcloud/music',      :to => 'soundcloud#music',      :as => :soundcloud_music
+  match '/soundcloud/connect',    to: 'soundcloud#connect',    :as => :soundcloud_connect
+  match '/soundcloud/connected',  to: 'soundcloud#connected',  :as => :soundcloud_connected
+  match '/soundcloud/disconnect', to: 'soundcloud#disconnect', :as => :soundcloud_disconnect
+  match '/soundcloud/music',      to: 'soundcloud#music',      :as => :soundcloud_music
 end
