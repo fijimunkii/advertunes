@@ -27,7 +27,6 @@ As an authorized user
 As an authorized user (musician)
 
 * I want to add my music to the site, so that advertisers might use it
-* I want to see how many times my tracks have been played
 
 As an authorized user (advertiser)
 
@@ -56,14 +55,21 @@ songs
 * description
 * num_stars
 
+stars
+
+* song_id
+* user_id
+
 feelings
 
 * name
 
 feelings_songs
 
-* feeling_id
-* song_id
+* feeling
+* song
+* index :feeling_id, :song_id
+* index :song_id
 
 genres
 
@@ -71,51 +77,7 @@ genres
 
 genres_songs
 
-* genre_id
-* song_id
-
-stars
-
-* song_id
-* user_id
-
-
-Gems
-====
-
-soundcloud
-
-
-TESTING ZONE
-=============
-
-http://developers.soundcloud.com/docs#authentication
-
-http://creativecommons.org/choose/
-
-
-client = SoundCloud.new({
-  :client_id     => ENV['ADVERTUNES_SOUNDCLOUD_ID'],
-  :client_secret => ENV['ADVERTUNES_SOUNDCLOUD_SECRET'],
-  :username      => 'harrisonpowers@gmail.com',
-  :password      => 'XXXXXXXXXX'
-})
-
-user.soundcloud_access_token = client.access_token
-user.soundcloud_refresh_token = client.refresh_token
-user.soundcloud_expires_at = client.expires_at
-user.soundcloud_username = client.get('/me').username
-user.soundcloud_id = client.get('/me').id
-
-tracks = client.get('/me/tracks').map do |track|
-  {
-    id: track.id,
-    permalink: track.permalink,
-    genre: track.genre,
-    description: track.description
-  }
-end
-
-
-
-embed_info = client.get('/oembed', :url => track_url)
+* genre
+* song
+* index :genre_id, :song_id
+* index :song_id
