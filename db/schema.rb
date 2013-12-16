@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
   end
 
   create_table "feelings_songs", :id => false, :force => true do |t|
-    t.integer  "feeling_id"
-    t.integer  "song_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "feeling_id"
+    t.integer "song_id"
   end
+
+  add_index "feelings_songs", ["feeling_id", "song_id"], :name => "index_feelings_songs_on_feeling_id_and_song_id"
+  add_index "feelings_songs", ["song_id"], :name => "index_feelings_songs_on_song_id"
 
   create_table "genres", :force => true do |t|
     t.string   "name"
@@ -33,11 +34,12 @@ ActiveRecord::Schema.define(:version => 20131213204024) do
   end
 
   create_table "genres_songs", :id => false, :force => true do |t|
-    t.integer  "genre_id"
-    t.integer  "song_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "genre_id"
+    t.integer "song_id"
   end
+
+  add_index "genres_songs", ["genre_id", "song_id"], :name => "index_genres_songs_on_genre_id_and_song_id"
+  add_index "genres_songs", ["song_id"], :name => "index_genres_songs_on_song_id"
 
   create_table "registrations", :force => true do |t|
     t.string   "email"

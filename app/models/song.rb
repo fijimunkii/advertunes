@@ -7,7 +7,7 @@
 #  artist      :string(255)
 #  permalink   :string(255)
 #  description :text
-#  num_stars   :integer
+#  num_stars   :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
