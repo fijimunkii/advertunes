@@ -25,7 +25,9 @@
         .star.star-on{data:{id: id}}
       - else
         .star.star-off{data:{id: id}}
-      .share{data:{id: id}}
+      %a.addthis_button_compact{'addthis:url' => "http://advertunes.org/music/#{id}", 'addthis:title' => 'Check out this song I found!'}
+        .share
+
     %br
   %br
   %br
