@@ -14,8 +14,10 @@ $(function() {
         info = { id: id, feeling: $feeling.val()};
 
     iGotAfeeling(info).done(function(data) {
-      $feeling.val('');
-      //TODO: flash feeling added
+      if (data.success) {
+        $feeling.val('');
+        //TODO: flash feeling added
+      }
     });
 
   });
