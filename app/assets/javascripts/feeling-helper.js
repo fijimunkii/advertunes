@@ -22,4 +22,9 @@ $(function() {
 
   });
 
+  $('#feeling_name').on('change', function(e) {
+    var feeling = $(this).val();
+    location = '/music/feeling/' + feeling;
+  });
+
 });

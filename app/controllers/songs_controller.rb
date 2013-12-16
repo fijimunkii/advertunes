@@ -9,7 +9,7 @@ class SongsController < ApplicationController
       if params[:genre] != "undefined"
         genre = Genre.where(name: params[:genre].titleize)
         if genre.length == 0
-          genre = Genre.create(name: params[:genre])
+          genre = Genre.create(name: params[:genre].titleize)
         else
           genre = genre[0]
         end
@@ -38,6 +38,48 @@ class SongsController < ApplicationController
       end
       @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
     end
+  end
+
+  def feeling
+    client = Soundcloud.new(:client_id => ENV['ADVERTUNES_SOUNDCLOUD_ID'])
+    feeling = Feeling.where(name: params[:feeling])[0]
+    songs = []
+    songs_with_feeling = FeelingsSongs.where(feeling_id: feeling)
+    songs_with_feeling.each do |feelings_songs|
+      songs << Song.find(feelings_songs.song)
+    end
+
+    @song_frames = []
+    songs.each do |song|
+      has_user_star = false
+      if current_user
+        user_star_check = Star.where(song_id: song.id, user_id: current_user.id)
+        has_user_star = user_star_check.length > 0
+      end
+      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+    end
+    render :index
+  end
+
+  def genre
+    client = Soundcloud.new(:client_id => ENV['ADVERTUNES_SOUNDCLOUD_ID'])
+    genre = Genre.where(name: params[:genre])[0]
+    songs = []
+    songs_with_genre = GenresSongs.where(genre_id: genre)
+    songs_with_genre.each do |genres_songs|
+      songs << Song.find(genres_songs.song)
+    end
+
+    @song_frames = []
+    songs.each do |song|
+      has_user_star = false
+      if current_user
+        user_star_check = Star.where(song_id: song.id, user_id: current_user.id)
+        has_user_star = user_star_check.length > 0
+      end
+      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+    end
+    render :index
   end
 
 end
