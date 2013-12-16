@@ -36,6 +36,7 @@
 //
 //= require star-helper
 //= require feeling-helper
+//= require genre-helper
 //
 //= require intro
 //
