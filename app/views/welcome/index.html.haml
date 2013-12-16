@@ -1,33 +1,32 @@
-%br
-
-.intro.adaptive-right#note
-  %a{href:'#note'}
-    = image_tag('note.png')
-%br
-%br
-%h2 for the artist
-%br
-%h4 your music could be the hit of a popular commerical or new movie!
-
-%br
-%br
-%br
-%br
-
-.intro.adaptive-right#radio
-  %a{href:'#radio'}
-    = image_tag('radio.png')
-%br
-%br
-%h2 for the advertiser
-%br
-%h4 find awesome music you can use for free!
-
-%br
-%br
-%br
-%br
 %a{href:'/music'}
+  %br
+
+  .intro.adaptive-right
+    = image_tag('note.png')
+  %br
+  %br
+  %h2 for the artist
+  %br
+  %h4 your music could be the hit of a popular commerical or new movie!
+
+  %br
+  %br
+  %br
+  %br
+
+  .intro.adaptive-right
+    = image_tag('radio.png')
+  %br
+  %br
+  %h2 for the advertiser
+  %br
+  %h4 find awesome music you can use for free!
+
+  %br
+  %br
+  %br
+  %br
+
   .intro.adaptive-right
     = image_tag('sound.png')
   %br
@@ -36,17 +35,17 @@
   %br
   %h4 listen to and rate music!
 
-%br
-%br
-%br
-%br
-%br
--if !current_user
-  .soundcloud-connect.center.bottom
-    = image_tag 'connect-big.png'
-%br
-%br
-%br
+  %br
+  %br
+  %br
+  %br
+  %br
+  -if !current_user
+    .soundcloud-connect.center.bottom
+      = image_tag 'connect-big.png'
+  %br
+  %br
+  %br
 
 
 .cclicense
