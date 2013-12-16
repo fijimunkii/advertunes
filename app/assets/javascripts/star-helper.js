@@ -7,7 +7,7 @@ $(function() {
     });
   }
 
-  $('.star').on('click', function() {
+  $('.star').on('click', function(e) {
     var star = $(this);
     var id = star.attr('data-id');
 

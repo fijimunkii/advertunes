@@ -8,7 +8,7 @@ $(function() {
     }
   };
 
-  $('.soundcloud-connect').on('click', function() {
+  $('.soundcloud-connect').on('click', function(e) {
     SC.Connect.initiate();
   });
 

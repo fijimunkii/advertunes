@@ -9,8 +9,8 @@
   = raw song
   - if current_user
     .left
-      = form_tag do
-        = text_field_tag "feeling-#{id}", nil, {placeholder: 'how does this song feel?', required: true}
+      = form_tag(nil, {:class => 'feeling-form'}) do
+        = text_field_tag 'feeling', nil, {placeholder: 'how does this song feel?', 'data-id' => id, required: true}
         = submit_tag 'tag'
     .right
       .num-stars

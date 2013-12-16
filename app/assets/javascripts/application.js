@@ -35,6 +35,7 @@
 //= require soundcloud-music
 //
 //= require star-helper
+//= require feeling-helper
 //
 //= require intro
 //
