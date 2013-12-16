@@ -6,6 +6,7 @@ body
 h1
 	font-size: 60px
 	font-family: 'Fascinate Inline', sans-serif
+	text-shadow: -1px 0 #545454, 0 1px #545454, 1px 0 #545454, 0 -1px #545454
 	@media screen and (max-width: 640px)
 		font-size: 45px
 h2
@@ -24,6 +25,19 @@ h4
 h5
 	font-size: 10px
 
+select
+	width: 87px
+	height: 20px
+	color: #818C9A
+	overflow: hidden
+	padding: 0 0 2px 7px
+	background: url('list.png') no-repeat right #F5F5F5
+	border: 1px solid #E5E5E5
+	-webkit-appearance: none
+	cursor: pointer
+	&:hover
+		background: url('list.png') no-repeat right #FFFFFF
+
 input
 	width: 160px
 	height: 20px
@@ -39,6 +53,9 @@ input
 	border-radius: 4px
 	&:hover
 		background: #FFFFFF
+	@media screen and (max-width: 640px)
+		font-size: 11px
+		width: 140px
 
 input[type=submit]
 	font-family: 'Nixie One', sans-serif
@@ -53,8 +70,11 @@ input[type=submit]
 	-webkit-border-radius: 4px
 	-moz-border-radius: 4px
 	border-radius: 4px
+	cursor: pointer
 	&:hover
 		background: #FFFFFF
+	@media screen and (max-width: 640px)
+		width: 30px
 
 
 #container
@@ -78,27 +98,38 @@ input[type=submit]
 			color: #7F8C8D
 			text-decoration: none
 #header
-	background: #7F8C8D
-	color: #EDF0F1
+	background: #A7A7A7
+	color: #F5F5F5
 	width: 100%
 	padding: 40px 0 20px 0
 	text-align: center
+	-webkit-border-bottom-right-radius: 5px
+	-webkit-border-bottom-left-radius: 5px
+	-moz-border-radius-bottomright: 5px
+	-moz-border-radius-bottomleft: 5px
+	border-bottom-right-radius: 5px
+	border-bottom-left-radius: 5px
+	-webkit-box-shadow: 0 6px 6px -6px black
+	-moz-box-shadow: 0 6px 6px -6px black
+	box-shadow: 0 6px 6px -6px black
 	a
-		color: #EDF0F1
+		color: #F5F5F5
 		text-decoration: none
 		&:hover
-			color: #EDF0F1
+			color: #F5F5F5
 			text-decoration: none
 		&:active
-			color: #EDF0F1
+			color: #F5F5F5
 			text-decoration: none
 			font-weight: bold
 		&:visited
-			color: #EDF0F1
+			color: #F5F5F5
 			text-decoration: none
 
 #super-header
-	@extend #header
+	background: #A7A7A7
+	color: #F5F5F5
+	width: 100%
 	margin: 0 0 0 0
 	padding: 9px 0 15px 0
 	text-align: right
@@ -172,6 +203,7 @@ input[type=submit]
 .num-stars
 	float: left
 	margin: 11px 10px 0 0
+	cursor: default
 
 .star
 	float: left
@@ -179,6 +211,9 @@ input[type=submit]
 	width: 20px
 	margin: 10px 5px 0 0
 	opacity: .4
+	cursor: pointer
+	&:hover
+		opacity: .8
 .star-off
 	@extend .star
 	float: left
@@ -195,6 +230,18 @@ input[type=submit]
 	&:hover
 		background: url("star-off.png")
 		background-size: 100%
+
+.share
+	float: left
+	margin: 10px 5px 0 0
+	background: url("share.png")
+	background-size: 100%
+	height: 20px
+	width: 20px
+	opacity: .4
+	cursor: pointer
+	&:hover
+		opacity: .8
 
 .cclicense
 	margin: 0 auto

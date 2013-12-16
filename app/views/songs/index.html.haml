@@ -18,13 +18,14 @@
         = text_field_tag 'feeling', nil, {placeholder: 'how does this song feel?', 'data-id' => id, required: true}
         = submit_tag 'tag'
     .right
-      .num-stars
+      .num-stars{title:"#{num_stars} stars"}
         = num_stars
 
       - if has_user_star
         .star.star-on{data:{id: id}}
       - else
         .star.star-off{data:{id: id}}
+      .share{data:{id: id}}
     %br
   %br
   %br
