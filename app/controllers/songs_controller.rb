@@ -82,4 +82,39 @@ class SongsController < ApplicationController
     render :index
   end
 
+  def top
+    client = Soundcloud.new(:client_id => ENV['ADVERTUNES_SOUNDCLOUD_ID'])
+
+    songs = Song.find(:all, :order => "num_stars DESC")
+
+    @song_frames = []
+    songs.each do |song|
+      has_user_star = false
+      if current_user
+        user_star_check = Star.where(song_id: song.id, user_id: current_user.id)
+        has_user_star = user_star_check.length > 0
+      end
+      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+    end
+    render :index
+  end
+
+
+  def bottom
+    client = Soundcloud.new(:client_id => ENV['ADVERTUNES_SOUNDCLOUD_ID'])
+
+    songs = Song.find(:all, :order => "num_stars ASC")
+
+    @song_frames = []
+    songs.each do |song|
+      has_user_star = false
+      if current_user
+        user_star_check = Star.where(song_id: song.id, user_id: current_user.id)
+        has_user_star = user_star_check.length > 0
+      end
+      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+    end
+    render :index
+  end
+
 end

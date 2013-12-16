@@ -62,6 +62,8 @@ group :development do
 end
 
 gem "simplecov", :require => false, :group => :test
+gem "cucumber", :require => false, :group => :test
+
 gem "thin"
 gem "haml-rails"
 gem "handlebars_assets", :group => :assets

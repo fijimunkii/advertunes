@@ -37,6 +37,7 @@
 //= require star-helper
 //= require feeling-helper
 //= require genre-helper
+//= require popularity-helper
 //
 //= require intro
 //

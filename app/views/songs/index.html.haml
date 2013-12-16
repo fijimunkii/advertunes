@@ -3,6 +3,11 @@
 
   = select("feeling", "name", Feeling.all.collect {|f| [f.name, f.name] }, {include_blank: 'feeling'})
 
+  %select{id:'popularity', name:'popularity'}
+    %option{value:nil}popularity
+    %option{value:'top'}top hits
+    %option{value:'bottom'}hidden gems
+
 %br
 
 - @song_frames.each do |song, id, num_stars, has_user_star|
