@@ -19,6 +19,7 @@ Advertunes::Application.routes.draw do
   get '/music/genre/:genre', to: 'songs#genre'
   get '/music/bottom', to: 'songs#bottom'
   get '/music/top', to: 'songs#top'
+  get '/music/:id', to: 'songs#single'
 
   post '/songs/toggle/:artist/:track/:permalink/:genre/:description', to: 'songs#toggle'
 
