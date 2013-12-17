@@ -9,9 +9,8 @@ class SongsController < ApplicationController
 
   def feeling
     feeling = Feeling.where(name: params[:feeling])[0]
-    songs = []
-    FeelingsSongs.where(feeling_id: feeling).each do |feelings_songs|
-      songs << Song.find(feelings_songs.song)
+    songs = FeelingsSongs.where(feeling_id: feeling).map do |feelings_songs|
+      Song.find(feelings_songs.song)
     end
     @song_frames = get_soundcloud_iframes(songs)
     render :index
@@ -19,9 +18,8 @@ class SongsController < ApplicationController
 
   def genre
     genre = Genre.where(name: params[:genre])[0]
-    songs = []
-    GenresSongs.where(genre_id: genre).each do |genres_songs|
-      songs << Song.find(genres_songs.song)
+    songs = GenresSongs.where(genre_id: genre).map do |genres_songs|
+      Song.find(genres_songs.song)
     end
     @song_frames = get_soundcloud_iframes(songs)
     render :index
