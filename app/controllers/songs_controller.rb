@@ -45,7 +45,11 @@ class SongsController < ApplicationController
   end
 
   def toggle
-    song_to_toggle = Song.where(artist: params[:artist], permalink: params[:permalink])
+    artist = params[:artist]
+    permalink = params[:permalink]
+
+    # check to see if the song exists
+    song_to_toggle = Song.where(artist: artist, permalink: permalink)
     if song_to_toggle.length == 1
       song_to_toggle[0].destroy
       render json: { off: true }
@@ -64,7 +68,7 @@ class SongsController < ApplicationController
         permalink:   params[:permalink],
         description: params[:description]
       })
-      GenresSongs.create(genre: genre, song: new_song)
+      GenresSongs.create(genre: genre, song: new_song) if genre
       render json: { on: true }
     end
   end

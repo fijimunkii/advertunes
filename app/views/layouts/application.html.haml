@@ -29,7 +29,7 @@
         - if current_user
           .left.point9
             %a{href:'/music'}
-              = image_tag 'listen.png'
+              = image_tag 'discover.png'
 
       - if current_user
         .right.point9.right-cushion
@@ -39,7 +39,7 @@
       - else
         .right.point9.right-cushion
           %a{href:'/music'}
-            = image_tag 'listen.png'
+            = image_tag 'discover.png'
 
     #header
       - flash.each do |name, msg|
