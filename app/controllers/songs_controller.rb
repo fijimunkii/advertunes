@@ -58,12 +58,12 @@ class SongsController < ApplicationController
           genre = genre[0]
         end
       end
-      new_song = Song.new
-      new_song.artist = params[:artist]
-      new_song.title = params[:title]
-      new_song.permalink = params[:permalink]
-      new_song.description = params[:description]
-      new_song.save!
+      new_song = Song.create ({
+        artist:      params[:artist],
+        title:       params[:title],
+        permalink:   params[:permalink],
+        description: params[:description]
+      })
       GenresSongs.create(genre: genre, song: new_song)
       render json: { on: true }
     end
