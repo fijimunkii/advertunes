@@ -17,15 +17,7 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :genres
   has_and_belongs_to_many :feelings
   before_destroy do
-    genres.each do |genre|
-      genre_check = GenresSongs.where(genre_id: genre)
-      Genre.find(genre).destroy if genre_check.length == 1
-      genre.destroy
-    end
-    feelings.each do |feeling|
-      feeling_check = FeelingsSongs.where(feeling_id: feeling)
-      Feeling.find(feeling).destroy if feeling_check.length == 1
-      feeling.destroy
-    end
+    genres.clear
+    feelings.clear
   end
 end
