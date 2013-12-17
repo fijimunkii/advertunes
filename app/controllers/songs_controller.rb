@@ -36,7 +36,11 @@ class SongsController < ApplicationController
         user_star_check = Star.where(song_id: song.id, user_id: current_user.id)
         has_user_star = user_star_check.length > 0
       end
-      @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+      begin
+        @song_frames << [client.get('/oembed', :url => "http://soundcloud.com/#{song.artist}/#{song.permalink}")['html'], song.id, song.num_stars, has_user_star]
+      rescue
+        next
+      end
     end
   end
 
