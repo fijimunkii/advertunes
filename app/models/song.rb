@@ -14,6 +14,10 @@
 
 class Song < ActiveRecord::Base
   attr_accessible :title, :artist, :permalink, :description, :num_stars
-  has_and_belongs_to_many :genres, :dependent => :destroy
-  has_and_belongs_to_many :feelings, :dependent => :destroy
+  has_and_belongs_to_many :genres
+  has_and_belongs_to_many :feelings
+  before_destroy do
+    genres.clear
+    feelings.clear
+  end
 end
