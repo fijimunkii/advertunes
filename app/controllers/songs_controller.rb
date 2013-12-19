@@ -54,7 +54,7 @@ class SongsController < ApplicationController
       song_to_toggle[0].destroy
       render json: { off: true }
     else
-      if params[:genre] != "undefined"
+      if params[:genre] && params[:genre] != "undefined"
         genre = Genre.where(name: params[:genre].titleize)
         if genre.length == 0
           genre = Genre.create(name: params[:genre].titleize)
@@ -62,12 +62,13 @@ class SongsController < ApplicationController
           genre = genre[0]
         end
       end
-      new_song = Song.create ({
-        artist:      params[:artist],
-        title:       params[:title],
-        permalink:   params[:permalink],
-        description: params[:description]
-      })
+      new_song = Song.new
+      new_song.artist = params[:artist]
+      new_song.title = params[:title]
+      new_song.permalink = params[:permalink]
+      new_song.description = params[:description] if params[:description]
+      new_song.save!
+
       GenresSongs.create(genre: genre, song: new_song) if genre
       render json: { on: true }
     end
