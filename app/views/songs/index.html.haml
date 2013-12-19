@@ -1,7 +1,7 @@
 %center
-  = select("genre", "name", @genres.collect { |g| [g.name, g.name] }, {include_blank: 'genre'})
+  / = select("genre", "name", @genres.collect { |g| [g.name, g.name] }, {include_blank: 'genre'})
 
-  = select("feeling", "name", @feelings.collect {|f| [f.name, f.name] }, {include_blank: 'feeling'})
+  / = select("feeling", "name", @feelings.collect {|f| [f.name, f.name] }, {include_blank: 'feeling'})
 
   %select{id:'popularity', name:'popularity'}
     %option{value:nil}popularity
