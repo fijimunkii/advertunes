@@ -40,6 +40,8 @@
 //= require popularity-helper
 //= require load-time-helper
 //
+//= require fade
+//
 //= require intro
 //
 //= require app

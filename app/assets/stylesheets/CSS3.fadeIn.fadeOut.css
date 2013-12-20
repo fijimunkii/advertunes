@@ -1,0 +1,20 @@
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+* { -webkit-animation-duration: 0.5s; }
+.fadeIn { -webkit-animation-name:fadeIn; }
+.fadeOut { -webkit-animation-name:fadeOut; }
+.not_visible { opacity:0; display:none; }
