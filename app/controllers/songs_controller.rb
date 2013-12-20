@@ -98,13 +98,13 @@ private
 
   def get_feelings
     @feelings = Feeling.all.map do |feeling|
-      feeling if FeelingsSongs.where(feeling_id: feeling).length > 0
+      feeling if feeling.name != "" && FeelingsSongs.where(feeling_id: feeling).length > 0
     end
   end
 
   def get_genres
     @genres = Genre.all.map do |genre|
-      genre if GenresSongs.where(genre_id: genre).length > 0
+      genre if genre.name != "" && GenresSongs.where(genre_id: genre).length > 0
     end
   end
 
