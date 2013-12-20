@@ -100,14 +100,14 @@ private
     @feelings = Feeling.all.map do |feeling|
       feeling if FeelingsSongs.where(feeling_id: feeling).length > 0
     end
-    @feelings.reject!(&:empty?)
+    @feelings = @feelings.compact.reject{|r| r.empty? if r.class == String}
   end
 
   def get_genres
     @genres = Genre.all.map do |genre|
       genre if GenresSongs.where(genre_id: genre).length > 0
     end
-    @genres.reject!(&:empty?)
+    @genres = @genres.compact.reject{|r| r.empty? if r.class == String}
   end
 
 end
