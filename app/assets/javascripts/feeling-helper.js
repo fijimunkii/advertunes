@@ -25,9 +25,7 @@ $(function() {
   $('#feeling_name').on('change', function(e) {
     var feeling = $(this).val();
     location = '/music/feeling/' + feeling;
-    $('#container').fadeOut(1000,function() {
-      $('#loading').fadeIn(1000);
-    });
+    fadeOutIn('container','loading');
   });
 
 });
