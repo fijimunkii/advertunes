@@ -38,7 +38,7 @@
 //= require feeling-helper
 //= require genre-helper
 //= require popularity-helper
-//= require cursor-helper
+//= require load-time-helper
 //
 //= require intro
 //
