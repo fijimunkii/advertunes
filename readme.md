@@ -1,5 +1,8 @@
 Advertunes
 ==========
+
+![Screenshot](/screenshot.jpg "Screenshot")
+
 *royalty-free music licensed for advertising*
 
 
